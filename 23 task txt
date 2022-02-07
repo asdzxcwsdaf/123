@@ -1,0 +1,56 @@
+
+class Celestial:
+    def __init__(self, name):
+        self.__name=name
+    def info(self):
+        print('Название:',self.__name)
+
+class RCelestial(Celestial):
+    def __init__(self, name, dia, mas):
+        super().__init__(name)
+        self.__diameter=dia
+        self.__mass=mas
+    def info(self):
+        super().info()
+        print('Диаметр:',self.__diameter,'км')
+        print('Масса:',self.__mass,'10^21 кг')
+
+class Planet(RCelestial):
+    def __init__(self, name, dia, mas, atm):
+        super().__init__(name, dia, mas)
+        self.__atmosphere=atm
+    def info(self):
+        super().info()
+        print('Атмосфера:',self.__atmosphere)
+
+class RingPlanet(Planet):
+    def __init__(self, name, dia, mas, atm, rng):
+        super().__init__(name, dia, mas, atm)
+        self.__rings=rng
+    def info(self):
+        super().info()
+        print('Кольца:',self.__rings)
+
+class SolarPlanet(Planet):
+    def __init__(self, name, dia, mas, atm, sdist):
+        super().__init__(name, dia, mas, atm)
+        self.__sundistance=sdist
+    def info(self):
+        super().info()
+        print('До солнца:',self.__sundistance)
+
+class Moon(RCelestial):
+    def __init__(self, name, dia, mas, host):
+        super().__init__(name, dia, mas)
+        self.__planet=host
+    def info(self):
+        super().info()
+        print('Планета:',self.__planet)
+
+class Star(RCelestial):
+    def __init__(self, name, dia, mas, mag):
+        super().__init__(name, dia, mas)
+        self.__magnitude=mag
+    def info(self):
+        super().info()
+        print('Величина:',self.__magnitude)
