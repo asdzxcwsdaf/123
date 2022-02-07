@@ -1,0 +1,30 @@
+class Rocket:
+    def __init__(self,n):
+        self.name = n
+        self.speed = 0
+        self.dest = "Земля"
+        self.state = "На поверхности объекта Земля"
+        self.pas = 0
+        print('Создана ракета', self.name)
+    def LoadPass(self,pas):
+        self.pas+=pas
+        print('Ракета',self.name,'загружено',pas,'чел')
+    def UnloadPass(self,pas):
+        self.pas-=pas
+        print('Ракета',self.name,'выгружено',pas,'чел')
+    def Prepare(self,dest):
+        self.dest=dest
+        self.state='Готова лететь к объекту '+dest
+        print('Ракета',self.name,self.state)
+    def Start(self,speed):
+        self.speed=speed
+        self.state='Летит к объекту '+self.dest +' со скоростью'+str(speed)
+        print('Ракета',self.name,self.state)
+    def Land(self):
+        self.speed=0
+        self.state='На поверхности объекта '+self.dest
+        print('Ракета',self.name,self.state)
+    def SpeedUp(self,speed):
+        pass # — Увеличить скорость на указанное число
+    def SpeedDown(self,speed):
+        pass #— Снизить скорость на указанное число
