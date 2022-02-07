@@ -1,0 +1,16 @@
+s=''
+with open('text.txt') as f:
+    s=f.read()
+
+s=s.lower()+' '
+sp=[]
+w=''
+for c in s:
+    if c.isalpha():
+        w+=c
+    elif w!='':
+        sp.append(w)
+        w=''
+
+print(sp)
+print(len(sp))
